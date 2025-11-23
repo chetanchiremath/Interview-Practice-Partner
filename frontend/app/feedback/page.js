@@ -46,7 +46,7 @@ function FeedbackContent() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-gray-900 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
             Analyzing Your Interview...
           </h2>
@@ -74,37 +74,56 @@ function FeedbackContent() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-100/30 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary-100/30 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+      </div>
+
       {/* Header */}
-      <header className="py-6 px-4 bg-white/80 backdrop-blur-sm border-b border-gray-200">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-900">
-            📊 Interview Feedback
-          </h1>
-          <p className="text-gray-600 mt-2">
-            Here's how you performed in your {feedback?.role?.replace(/_/g, ' ')} interview
-          </p>
+      <header className="py-8 px-6 bg-white/70 backdrop-blur-md border-b border-white/20 sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary-700 to-primary-600 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-primary-500/20">
+                ✓
+              </div>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Interview Complete
+              </h1>
+            </div>
+            <p className="text-gray-600 ml-13">
+              Performance analysis for <span className="font-semibold text-gray-900">{feedback?.role?.replace(/_/g, ' ')}</span>
+            </p>
+          </div>
+          <button
+            onClick={() => router.push('/')}
+            className="px-6 py-3 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-all shadow-sm flex items-center gap-2"
+          >
+            <span>← Back to Home</span>
+          </button>
         </div>
       </header>
 
       {/* Feedback Dashboard */}
-      <main className="py-8 px-4">
-        <div className="max-w-6xl mx-auto">
+      <main className="py-12 px-6">
+        <div className="max-w-7xl mx-auto">
           <FeedbackDashboard feedback={feedback} />
           
           {/* Action Buttons */}
-          <div className="flex gap-4 justify-center mt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 mb-8">
             <button
               onClick={() => router.push('/')}
-              className="btn-primary"
+              className="px-8 py-4 bg-gradient-to-r from-primary-700 to-primary-600 hover:from-primary-800 hover:to-primary-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 transform hover:-translate-y-0.5"
             >
-              Practice Again
+              🚀 Practice Again
             </button>
             <button
               onClick={() => window.print()}
-              className="btn-secondary"
+              className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-all shadow-sm"
             >
-              📄 Print Report
+              📄 Download Report
             </button>
           </div>
         </div>

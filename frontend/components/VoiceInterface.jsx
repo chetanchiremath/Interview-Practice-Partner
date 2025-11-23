@@ -447,7 +447,7 @@ export default function VoiceInterface({ sessionId, onEnd }) {
   }
 
   return (
-    <div className="h-[calc(100vh-180px)] flex flex-col card">
+    <div className="h-full flex flex-col">
       {/* Error Display */}
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -455,16 +455,6 @@ export default function VoiceInterface({ sessionId, onEnd }) {
         </div>
       )}
 
-      {/* Browser info - Simple */}
-      <div className="bg-blue-50 border border-blue-200 text-blue-700 px-4 py-3 rounded mb-4 text-sm">
-        ✨ Using FREE browser-based voice - AI will SPEAK to you! 🔊
-        {!browserSupport.synthesis && (
-          <div className="text-red-600 font-bold mt-2">
-            ⚠️ Audio not supported in this browser - use Chrome!
-          </div>
-        )}
-      </div>
-      
       {/* Speaking Indicator - BIG AND OBVIOUS */}
       {isSpeaking && (
         <div className="bg-green-100 border-2 border-green-500 text-green-800 px-6 py-4 rounded-lg mb-4 text-center animate-pulse">
@@ -482,10 +472,10 @@ export default function VoiceInterface({ sessionId, onEnd }) {
             className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} fade-in`}
           >
             <div
-              className={`max-w-[80%] rounded-lg px-4 py-3 ${
+              className={`max-w-[80%] rounded-2xl px-5 py-4 shadow-sm ${
                 message.role === 'user'
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 text-gray-900'
+                  ? 'bg-gradient-to-br from-primary-600 to-primary-500 text-white rounded-br-none'
+                  : 'bg-white text-gray-800 border border-gray-100 rounded-bl-none'
               }`}
             >
               {message.role === 'assistant' && (
@@ -556,8 +546,8 @@ export default function VoiceInterface({ sessionId, onEnd }) {
               onClick={startListening}
               disabled={isProcessing || isSpeaking || interviewEnded}
               className={`mic-button flex items-center justify-center ${
-                isListening ? 'recording bg-red-500' : 'bg-primary-600 hover:bg-primary-700'
-              } text-white disabled:opacity-50 disabled:cursor-not-allowed shadow-lg transition-all`}
+                isListening ? 'recording bg-red-500 shadow-red-500/50' : 'bg-gradient-to-br from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 shadow-primary-500/30'
+              } text-white disabled:opacity-50 disabled:cursor-not-allowed shadow-xl transition-all transform hover:scale-105 active:scale-95`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

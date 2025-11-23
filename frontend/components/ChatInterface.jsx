@@ -136,7 +136,7 @@ export default function ChatInterface({ sessionId, onEnd }) {
   }
 
   return (
-    <div className="h-[calc(100vh-180px)] flex flex-col card">
+    <div className="h-full flex flex-col">
       {/* Messages Container */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((message, index) => (
@@ -145,12 +145,12 @@ export default function ChatInterface({ sessionId, onEnd }) {
             className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} fade-in`}
           >
             <div
-              className={`max-w-[80%] rounded-lg px-4 py-3 ${
+              className={`max-w-[80%] rounded-2xl px-5 py-4 shadow-sm ${
                 message.role === 'user'
-                  ? 'bg-primary-600 text-white'
+                  ? 'bg-gradient-to-br from-primary-600 to-primary-500 text-white rounded-br-none'
                   : message.role === 'system'
-                  ? 'bg-red-100 text-red-800'
-                  : 'bg-gray-100 text-gray-900'
+                  ? 'bg-red-50 text-red-800 border border-red-100'
+                  : 'bg-white text-gray-800 border border-gray-100 rounded-bl-none'
               }`}
             >
               {message.role === 'assistant' && (

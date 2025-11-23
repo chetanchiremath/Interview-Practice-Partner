@@ -8,11 +8,15 @@ export const metadata = {
   description: 'AI-powered mock interview practice platform',
 };
 
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <body className={inter.className}>
+        <div className="min-h-screen bg-gray-50 text-gray-900">
           {children}
         </div>
       </body>

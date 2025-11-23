@@ -17,17 +17,29 @@ export default function RoleSelector({ roles, selectedRole, onSelectRole }) {
         <button
           key={role.id}
           onClick={() => onSelectRole(role.id)}
-          className={`p-6 rounded-xl border-2 text-left transition-all transform hover:scale-105 ${
+          className={`relative p-6 rounded-2xl border text-left transition-all duration-300 group overflow-hidden ${
             selectedRole === role.id
-              ? 'border-primary-500 bg-primary-50 shadow-lg'
-              : 'border-gray-200 hover:border-gray-300 hover:shadow-md'
+              ? 'border-primary-500 bg-white shadow-xl shadow-primary-500/20 ring-2 ring-primary-500 ring-offset-2'
+              : 'border-white/40 bg-white/60 hover:bg-white hover:border-primary-200 hover:shadow-lg hover:shadow-primary-500/10'
           }`}
         >
-          <div className="text-4xl mb-3">{roleIcons[role.id] || '💼'}</div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            {role.name}
-          </h3>
-          <p className="text-sm text-gray-600">{role.description}</p>
+          <div className={`absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent opacity-0 transition-opacity duration-300 ${
+            selectedRole === role.id ? 'opacity-100' : 'group-hover:opacity-50'
+          }`} />
+          
+          <div className="relative z-10">
+            <div className={`text-4xl mb-4 transition-transform duration-300 ${selectedRole === role.id ? 'scale-110' : 'group-hover:scale-110'}`}>
+              {roleIcons[role.id] || '💼'}
+            </div>
+            <h3 className={`text-lg font-bold mb-2 transition-colors ${
+              selectedRole === role.id ? 'text-primary-700' : 'text-gray-900 group-hover:text-primary-600'
+            }`}>
+              {role.name}
+            </h3>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              {role.description}
+            </p>
+          </div>
         </button>
       ))}
     </div>
