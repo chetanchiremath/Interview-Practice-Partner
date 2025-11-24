@@ -177,71 +177,76 @@ app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
 // START SERVER
 // =====================
 
-const server = app.listen(PORT, () => {
-  console.log('\n==============================================');
-  console.log('🚀 Multi-Agent Interview Practice Partner API');
-  console.log('==============================================');
-  console.log(`Server:      http://localhost:${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`Health:      http://localhost:${PORT}/health`);
-  console.log('\n📋 Available Endpoints:');
-  console.log('  POST   /api/interview/start     - Start new interview');
-  console.log('  POST   /api/interview/next      - Send response (triggers agents)');
-  console.log('  GET    /api/interview/session/:id - Get session info');
-  console.log('  POST   /api/interview/end       - End interview');
-  console.log('  POST   /api/feedback/generate   - Generate feedback');
-  console.log('  GET    /api/feedback/roles      - Get available roles');
-  console.log('  POST   /api/voice/stt           - Speech to text');
-  console.log('  POST   /api/voice/tts           - Text to speech');
-  console.log('  POST   /api/voice/tts-stream    - Text to speech (streaming)');
-  console.log('  GET    /api/voice/voices        - Get TTS voices');
-  console.log('\n🤖 Agent Architecture:');
-  console.log('  1. Orchestrator → Decides what happens next');
-  console.log('  2. Analyzer     → Evaluates user responses');
-  console.log('  3. Interviewer  → Generates questions');
-  console.log('  4. Feedback     → Provides final evaluation');
-  console.log('\n==============================================\n');
-});
+// Only start the server if we're not in a serverless environment (like Vercel)
+// Vercel exports the app and handles the server itself
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  const server = app.listen(PORT, () => {
 
-/**
- * Handle server errors
- */
-server.on('error', (error: NodeJS.ErrnoException) => {
-  if (error.code === 'EADDRINUSE') {
-    console.error(`\n❌ Error: Port ${PORT} is already in use.`);
-    console.error('\nTo fix this:');
-    console.error(`1. Kill the process: lsof -ti:${PORT} | xargs kill -9`);
-    console.error(`2. Or use a different port: PORT=9001 npm run dev\n`);
-    process.exit(1);
-  } else {
-    console.error('Server error:', error);
-    process.exit(1);
-  }
-});
-
-/**
- * Graceful Shutdown
- * Handles Ctrl+C and other termination signals
- */
-process.on('SIGINT', () => {
-  console.log('\n\n🛑 Gracefully shutting down...');
-  server.close(() => {
-    console.log('Server closed. Goodbye!\n');
-    process.exit(0);
+    console.log('\n==============================================');
+    console.log('🚀 Multi-Agent Interview Practice Partner API');
+    console.log('==============================================');
+    console.log(`Server:      http://localhost:${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`Health:      http://localhost:${PORT}/health`);
+    console.log('\n📋 Available Endpoints:');
+    console.log('  POST   /api/interview/start     - Start new interview');
+    console.log('  POST   /api/interview/next      - Send response (triggers agents)');
+    console.log('  GET    /api/interview/session/:id - Get session info');
+    console.log('  POST   /api/interview/end       - End interview');
+    console.log('  POST   /api/feedback/generate   - Generate feedback');
+    console.log('  GET    /api/feedback/roles      - Get available roles');
+    console.log('  POST   /api/voice/stt           - Speech to text');
+    console.log('  POST   /api/voice/tts           - Text to speech');
+    console.log('  POST   /api/voice/tts-stream    - Text to speech (streaming)');
+    console.log('  GET    /api/voice/voices        - Get TTS voices');
+    console.log('\n🤖 Agent Architecture:');
+    console.log('  1. Orchestrator → Decides what happens next');
+    console.log('  2. Analyzer     → Evaluates user responses');
+    console.log('  3. Interviewer  → Generates questions');
+    console.log('  4. Feedback     → Provides final evaluation');
+    console.log('\n==============================================\n');
   });
-});
 
-// Handle uncaught exceptions
-process.on('uncaughtException', (error: Error) => {
-  console.error('Uncaught exception:', error);
-  process.exit(1);
-});
+  /**
+   * Handle server errors
+   */
+  server.on('error', (error: NodeJS.ErrnoException) => {
+    if (error.code === 'EADDRINUSE') {
+      console.error(`\n❌ Error: Port ${PORT} is already in use.`);
+      console.error('\nTo fix this:');
+      console.error(`1. Kill the process: lsof -ti:${PORT} | xargs kill -9`);
+      console.error(`2. Or use a different port: PORT=9001 npm run dev\n`);
+      process.exit(1);
+    } else {
+      console.error('Server error:', error);
+      process.exit(1);
+    }
+  });
 
-// Handle unhandled promise rejections
-process.on('unhandledRejection', (reason: any) => {
-  console.error('Unhandled rejection:', reason);
-  process.exit(1);
-});
+  /**
+   * Graceful Shutdown
+   * Handles Ctrl+C and other termination signals
+   */
+  process.on('SIGINT', () => {
+    console.log('\n\n🛑 Gracefully shutting down...');
+    server.close(() => {
+      console.log('Server closed. Goodbye!\n');
+      process.exit(0);
+    });
+  });
+
+  // Handle uncaught exceptions
+  process.on('uncaughtException', (error: Error) => {
+    console.error('Uncaught exception:', error);
+    process.exit(1);
+  });
+
+  // Handle unhandled promise rejections
+  process.on('unhandledRejection', (reason: any) => {
+    console.error('Unhandled rejection:', reason);
+    process.exit(1);
+  });
+}
 
 export default app;
 

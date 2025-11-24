@@ -45,7 +45,4 @@ tmp/
 temp/
 *.tmp
 
-# Markdown files (except README)
-*.md
-!README.md
 
