@@ -1,100 +1,181 @@
-# 🎯 Interview Practice Partner
+# 🎯 AI Interview Practice Partner
 
-An AI-powered mock interview platform that helps job seekers prepare for interviews with realistic practice sessions and detailed feedback.
+> **An intelligent, multi-agent AI interview platform powered by Google Gemini and LangChain**
 
-![Tech Stack](https://img.shields.io/badge/Stack-Node.js%20%7C%20Next.js%20%7C%20Gemini-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Cost](https://img.shields.io/badge/Cost-100%25%20FREE-brightgreen)
+[![Tech Stack](https://img.shields.io/badge/Stack-TypeScript%20%7C%20Next.js%20%7C%20Gemini%20%7C%20LangChain-blue)](https://github.com)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Cost](https://img.shields.io/badge/Cost-100%25%20FREE-brightgreen)](https://makersuite.google.com/app/apikey)
+[![Version](https://img.shields.io/badge/Version-2.0-orange)](https://github.com)
 
 ---
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Architecture](#architecture)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Setup Instructions](#setup-instructions)
-- [API Documentation](#api-documentation)
-- [Design Decisions](#design-decisions)
-- [User Personas & Testing](#user-personas--testing)
-- [Future Enhancements](#future-enhancements)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Setup Instructions](#-setup-instructions)
+- [API Documentation](#-api-documentation)
+- [Multi-Agent System](#-multi-agent-system)
+- [Design Decisions](#-design-decisions)
+- [Voice Features](#-voice-features)
+- [Deployment](#-deployment)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
 
 ---
 
 ## 🎯 Overview
 
-Interview Practice Partner is a sophisticated conversational AI application that conducts realistic mock interviews for various job roles. The system adapts to different user personas, asks intelligent follow-up questions, and provides comprehensive post-interview feedback.
+**Interview Practice Partner** is a sophisticated AI-powered mock interview platform that simulates realistic job interviews using a **multi-agent architecture**. The system intelligently adapts to candidates, provides real-time analytics, and delivers comprehensive feedback to help job seekers improve their interview skills.
 
 ### 🆓 100% FREE - No API Costs!
 
-This project uses:
-- ✅ **Google Gemini API** - FREE with generous limits (60 requests/minute)
-- ✅ **Browser Web Speech API** - Built-in, completely FREE
-- ✅ **Browser Speech Synthesis** - Built-in, completely FREE
+This project leverages:
+- ✅ **Google Gemini 2.5 Flash** - FREE with generous limits (60 requests/minute)
+- ✅ **Browser Web Speech API** - Built-in Speech-to-Text (FREE)
+- ✅ **Browser Speech Synthesis** - Built-in Text-to-Speech (FREE)
+- ✅ **LangChain** - Open-source agent orchestration framework
 
 **No credit card required! No hidden costs!**
 
-### Key Capabilities
+### 🌟 Key Capabilities
 
-✅ **Role-Specific Interviews** - Tailored questions for Software Engineers, Sales Reps, Product Managers, and more  
-✅ **Adaptive Conversation** - AI detects user personas (confused, efficient, chatty) and adjusts accordingly  
-✅ **Multi-Modal Interaction** - Both voice and chat interfaces for flexible practice  
-✅ **Intelligent Follow-ups** - Context-aware follow-up questions like a real interviewer  
-✅ **Detailed Feedback** - Comprehensive evaluation with scores, strengths, and improvement areas  
+✅ **Multi-Agent Intelligence** - Orchestrator, Analyzer, Interviewer, and Feedback agents work together  
+✅ **Adaptive Questioning** - AI adjusts difficulty and style based on candidate performance  
+✅ **Real-Time Analytics** - Continuous evaluation of communication, technical skills, and engagement  
+✅ **Role-Specific Interviews** - Tailored questions for Software Engineers, Product Managers, Sales, and more  
+✅ **Voice & Chat Modes** - Flexible interaction options for different practice scenarios  
+✅ **Comprehensive Feedback** - Detailed post-interview analysis with actionable insights  
 
 ---
 
 ## ✨ Features
 
-### 1. **Realistic Mock Interviews**
-- 6 different job roles with role-specific questions
-- Natural conversation flow with opening, main questions, and closing
-- 5-8 questions per interview session
-- Professional yet supportive interviewer persona
+### 1. **Multi-Agent Architecture** 🤖
 
-### 2. **Voice & Chat Modes**
-- **Voice Mode**: Real-time speech recognition using browser's Web Speech API (FREE!)
-- **Chat Mode**: Text-based interaction for careful response crafting
+The system uses **four specialized AI agents** that collaborate to create a realistic interview experience:
+
+- **🧠 Orchestrator Agent**: Decides interview flow and next steps
+- **📊 Analyzer Agent**: Evaluates responses in real-time
+- **💼 Interviewer Agent**: Generates contextual questions
+- **📝 Feedback Agent**: Provides comprehensive post-interview evaluation
+
+### 2. **Intelligent Adaptation** 🎯
+
+The AI automatically detects and adapts to:
+- **Response Length**: Adjusts question style for chatty or brief candidates
+- **Technical Depth**: Increases/decreases difficulty based on performance
+- **Off-Topic Responses**: Gently steers conversation back on track
+- **Confidence Levels**: Provides hints or challenges as appropriate
+
+### 3. **Real-Time Analytics** 📈
+
+Continuous evaluation across multiple dimensions:
+- **Communication Score** (1-10)
+- **Technical Knowledge** (1-10)
+- **Behavioral Skills** (1-10)
+- **Confidence Level** (1-10)
+- **Engagement Score** (1-10)
+
+### 4. **Voice & Chat Modes** 🎤💬
+
+- **Voice Mode**: Practice speaking skills with real-time speech recognition
+- **Chat Mode**: Craft thoughtful written responses
 - Seamless switching between modes
 
-### 3. **Adaptive AI Behavior**
-The AI automatically detects and adapts to different user types:
+### 5. **Comprehensive Feedback** 📊
 
-- **Confused User**: Offers guidance, suggests roles, asks clarifying questions
-- **Efficient User**: Moves quickly, stays focused, provides concise feedback
-- **Chatty User**: Gently redirects, maintains interview structure
-- **Off-Topic User**: Acknowledges but guides back to relevant topics
-
-### 4. **Comprehensive Feedback**
 Post-interview analysis includes:
-- Overall score (1-10)
-- Breakdown by category (communication, technical knowledge, problem-solving, confidence, relevance)
+- Overall performance score
+- Category-wise breakdown
 - Specific strengths with examples
 - Areas for improvement with actionable advice
 - Interview highlights
 - Hiring recommendation (Strong Hire / Hire / Maybe / No Hire)
 
+### 6. **Role-Specific Interviews** 💼
+
+Specialized question sets for:
+- Software Engineer
+- Product Manager
+- Data Scientist
+- Sales Representative
+- Marketing Manager
+- Customer Success Manager
+
 ---
 
 ## 🏗️ Architecture
 
-### System Design
+### System Overview
 
 ```
-┌─────────────────┐         ┌──────────────────┐         ┌─────────────────┐
-│   Frontend      │         │    Backend       │         │  Google Gemini  │
-│   (Next.js)     │◄───────►│   (Express)      │◄───────►│   API (FREE!)   │
-│                 │         │                  │         │                 │
-│  - Role Select  │  HTTP   │  - AI Service    │  API    │  - Gemini Pro   │
-│  - Chat UI      │  REST   │  - Voice Service │  Calls  │  - Conversation │
-│  - Voice UI     │         │  - Evaluation    │         │  - Analysis     │
-│  - Feedback     │         │  - Controllers   │         │                 │
-│                 │         │                  │         │                 │
-│  Web Speech API │         │                  │         │                 │
-│  (FREE Voice)   │         │                  │         │                 │
-└─────────────────┘         └──────────────────┘         └─────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                        FRONTEND (Next.js 14)                    │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐         │
+│  │ Landing Page │  │  Interview   │  │   Feedback   │         │
+│  │              │  │   Interface  │  │   Dashboard  │         │
+│  └──────────────┘  └──────────────┘  └──────────────┘         │
+│         │                  │                  │                 │
+│         └──────────────────┼──────────────────┘                 │
+│                            │ REST API                           │
+└────────────────────────────┼────────────────────────────────────┘
+                             │
+┌────────────────────────────┼────────────────────────────────────┐
+│                    BACKEND (Express + TypeScript)               │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │              MULTI-AGENT WORKFLOW SERVICE                │  │
+│  │                                                          │  │
+│  │  ┌────────────┐    ┌────────────┐    ┌────────────┐   │  │
+│  │  │Orchestrator│───▶│  Analyzer  │───▶│Interviewer │   │  │
+│  │  │   Agent    │    │   Agent    │    │   Agent    │   │  │
+│  │  └────────────┘    └────────────┘    └────────────┘   │  │
+│  │         │                                      │        │  │
+│  │         └──────────────────┬───────────────────┘        │  │
+│  │                            │                            │  │
+│  │                     ┌────────────┐                      │  │
+│  │                     │  Feedback  │                      │  │
+│  │                     │   Agent    │                      │  │
+│  │                     └────────────┘                      │  │
+│  └──────────────────────────────────────────────────────────┘  │
+│                            │                                   │
+│                            ▼                                   │
+│                  ┌──────────────────┐                          │
+│                  │  Google Gemini   │                          │
+│                  │  2.5 Flash API   │                          │
+│                  │   (FREE!)        │                          │
+│                  └──────────────────┘                          │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Multi-Agent Workflow
+
+```
+User Answer
+    │
+    ▼
+┌─────────────────┐
+│ Analyzer Agent  │ ──▶ Evaluates response quality
+└─────────────────┘     Detects patterns (chatty, brief, off-topic)
+    │                   Scores: communication, technical, behavioral
+    ▼
+┌─────────────────┐
+│Orchestrator     │ ──▶ Decides: continue or end interview?
+│Agent            │     Determines next question type
+└─────────────────┘     Adapts difficulty based on performance
+    │
+    ▼
+┌─────────────────┐
+│Interviewer Agent│ ──▶ Generates contextual question
+│  OR             │     Considers role, seniority, history
+│Feedback Agent   │     Provides hints if struggling
+└─────────────────┘
+    │
+    ▼
+Next Question / Final Feedback
 ```
 
 ---
@@ -102,23 +183,25 @@ Post-interview analysis includes:
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web framework
-- **Google Gemini API** - Conversational AI (FREE!)
-- **Multer** - File upload handling
-- **Axios** - HTTP client
+- **Runtime**: Node.js (v18+)
+- **Language**: TypeScript
+- **Framework**: Express.js
+- **AI Model**: Google Gemini 2.5 Flash (FREE!)
+- **Agent Framework**: LangChain + LangGraph
+- **Voice Processing**: Browser Web Speech API (client-side)
 
 ### Frontend
-- **Next.js 14** - React framework with App Router
-- **React** - UI library
-- **Tailwind CSS** - Utility-first CSS framework
-- **Web Speech API** - Browser voice recognition (FREE!)
-- **Speech Synthesis API** - Browser text-to-speech (FREE!)
+- **Framework**: Next.js 14 (App Router)
+- **Language**: JavaScript/React
+- **Styling**: Tailwind CSS
+- **HTTP Client**: Axios
+- **Voice I/O**: Web Speech API + Speech Synthesis API
 
-### AI Services
-- **Gemini Pro** - Main conversational engine (FREE!)
-- **Web Speech API** - Speech-to-text (FREE, built into browser!)
-- **Speech Synthesis** - Text-to-speech (FREE, built into browser!)
+### AI & ML
+- **LLM**: Google Gemini 2.5 Flash via `@langchain/google-genai`
+- **Orchestration**: LangChain Core + LangGraph
+- **Prompt Engineering**: Custom role-based and adaptive prompts
+- **Output Parsing**: Structured JSON responses
 
 ---
 
@@ -128,51 +211,62 @@ Post-interview analysis includes:
 interview-practice-partner/
 ├── backend/
 │   ├── src/
-│   │   ├── config/
-│   │   │   └── gemini.js                # Gemini API configuration
-│   │   ├── controllers/
-│   │   │   ├── interviewController.js   # Interview API handlers
-│   │   │   ├── feedbackController.js    # Feedback API handlers
-│   │   │   └── voiceController.js       # Voice status
+│   │   ├── agents/                      # Multi-Agent System
+│   │   │   ├── orchestratorAgent.ts     # Decides interview flow
+│   │   │   ├── analyzerAgent.ts         # Evaluates responses
+│   │   │   ├── interviewerAgent.ts      # Generates questions
+│   │   │   └── feedbackAgent.ts         # Creates final feedback
+│   │   │
 │   │   ├── services/
-│   │   │   ├── aiService.js             # Core AI logic (Gemini)
-│   │   │   ├── voiceService.js          # Voice helpers
-│   │   │   └── evaluationService.js     # Feedback generation
+│   │   │   ├── agentWorkflow.ts         # Orchestrates agent collaboration
+│   │   │   └── voiceService.ts          # Voice processing utilities
+│   │   │
+│   │   ├── controllers/
+│   │   │   ├── interviewController.ts   # Interview API handlers
+│   │   │   ├── feedbackController.ts    # Feedback API handlers
+│   │   │   └── voiceController.ts       # Voice API handlers
+│   │   │
 │   │   ├── routes/
-│   │   │   ├── interview.js             # Interview endpoints
-│   │   │   ├── feedback.js              # Feedback endpoints
-│   │   │   └── voice.js                 # Voice endpoints
-│   │   ├── prompts/
-│   │   │   ├── systemPrompts.js         # AI system instructions
-│   │   │   └── rolePrompts.js           # Role-specific contexts
-│   │   ├── middleware/
-│   │   │   ├── errorHandler.js          # Error handling
-│   │   │   └── validation.js            # Input validation
-│   │   └── utils/
-│   │       ├── questionBank.js          # Question management
-│   │       └── helpers.js               # Utility functions
-│   ├── server.js                         # Express server
-│   └── package.json
+│   │   │   ├── interview.ts             # Interview endpoints
+│   │   │   ├── feedback.ts              # Feedback endpoints
+│   │   │   └── voice.ts                 # Voice endpoints
+│   │   │
+│   │   ├── types/
+│   │   │   └── interview.types.ts       # TypeScript type definitions
+│   │   │
+│   │   └── server.ts                    # Express server entry point
+│   │
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── .env                             # Environment variables
 │
 ├── frontend/
 │   ├── app/
-│   │   ├── page.js                       # Landing page
-│   │   ├── layout.js                     # Root layout
-│   │   ├── globals.css                   # Global styles
-│   │   ├── interview/page.js             # Interview page
-│   │   └── feedback/page.js              # Feedback page
+│   │   ├── page.js                      # Landing page (role selection)
+│   │   ├── layout.js                    # Root layout
+│   │   ├── globals.css                  # Global styles + Tailwind
+│   │   ├── interview/
+│   │   │   └── page.js                  # Interview interface
+│   │   └── feedback/
+│   │       └── page.js                  # Feedback display
+│   │
 │   ├── components/
-│   │   ├── RoleSelector.jsx             # Job role selection
-│   │   ├── VoiceInterface.jsx           # Voice mode UI (Web Speech API)
+│   │   ├── RoleSelector.jsx             # Job role selection cards
+│   │   ├── VoiceInterface.jsx           # Voice mode UI
 │   │   ├── ChatInterface.jsx            # Chat mode UI
-│   │   └── FeedbackDashboard.jsx        # Feedback display
+│   │   └── FeedbackDashboard.jsx        # Feedback visualization
+│   │
 │   ├── lib/
-│   │   └── api.js                        # API client
-│   └── package.json
+│   │   └── api.js                       # Axios API client
+│   │
+│   ├── tailwind.config.js               # Tailwind configuration
+│   ├── package.json
+│   └── .env.local                       # Frontend environment variables
 │
-├── README.md
-├── QUICKSTART.md
-└── .gitignore
+├── README.md                            # This file
+├── ARCHITECTURE_EXPLAINED.md            # Detailed architecture guide
+├── .gitignore
+└── package.json
 ```
 
 ---
@@ -187,46 +281,67 @@ interview-practice-partner/
 
 ### Step 1: Get Your FREE Gemini API Key
 
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
 2. Sign in with your Google account
-3. Click "Create API Key"
+3. Click **"Create API Key"**
 4. Copy your API key (starts with `AIza...`)
 
 **No credit card required! Completely FREE!**
 
-### Step 2: Clone & Install Backend
+### Step 2: Clone the Repository
 
 ```bash
-# Navigate to backend
+git clone <repository-url>
+cd interview-practice-partner
+```
+
+### Step 3: Backend Setup
+
+```bash
+# Navigate to backend directory
 cd backend
 
 # Install dependencies
 npm install
 
 # Create .env file
-echo "PORT=9000
+cat > .env << EOF
+PORT=9000
 NODE_ENV=development
 GEMINI_API_KEY=your_gemini_api_key_here
-FRONTEND_URL=http://localhost:3000" > .env
+FRONTEND_URL=http://localhost:3000
+EOF
 ```
 
-**Edit `.env` and paste your Gemini API key**
+**⚠️ Important**: Edit `.env` and replace `your_gemini_api_key_here` with your actual Gemini API key.
 
-### Step 3: Start Backend
+### Step 4: Start Backend Server
 
 ```bash
 # Development mode (auto-restart on changes)
 npm run dev
+
+# Production mode
+npm run build
+npm start
 ```
 
-Backend runs on `http://localhost:9000`
+Backend runs on **`http://localhost:9000`**
 
-### Step 4: Install & Start Frontend
+You should see:
+```
+🚀 Multi-Agent Interview Practice Partner API
+Server:      http://localhost:9000
+Environment: development
+Health:      http://localhost:9000/health
+```
 
-**Open a NEW terminal:**
+### Step 5: Frontend Setup
+
+**Open a NEW terminal window:**
 
 ```bash
-# Navigate to frontend
+# Navigate to frontend directory
 cd frontend
 
 # Install dependencies
@@ -235,19 +350,19 @@ npm install
 # Create .env.local file
 echo "NEXT_PUBLIC_API_URL=http://localhost:9000" > .env.local
 
-# Start frontend
+# Start development server
 npm run dev
 ```
 
-Frontend runs on `http://localhost:3000`
+Frontend runs on **`http://localhost:3000`**
 
-### Step 5: Open Browser
+### Step 6: Open in Browser
 
 ```
 http://localhost:3000
 ```
 
-**That's it! You're ready to practice! 🎉**
+**🎉 You're ready to practice!**
 
 ---
 
@@ -267,18 +382,45 @@ Content-Type: application/json
 
 {
   "role": "SOFTWARE_ENGINEER",
+  "seniority": "mid",
   "interactionMode": "chat"
+}
+
+Response:
+{
+  "success": true,
+  "data": {
+    "sessionId": "session_abc123",
+    "message": "Hello! I'm excited to interview you today...",
+    "role": "SOFTWARE_ENGINEER",
+    "seniority": "mid"
+  }
 }
 ```
 
-#### **2. Send Response**
+#### **2. Send Response (Triggers Multi-Agent Workflow)**
 ```http
-POST /interview/respond
+POST /interview/next
 Content-Type: application/json
 
 {
-  "sessionId": "session_xxx",
-  "message": "I have 5 years of experience..."
+  "sessionId": "session_abc123",
+  "message": "I have 5 years of experience in full-stack development..."
+}
+
+Response:
+{
+  "success": true,
+  "data": {
+    "message": "That's great! Can you tell me about a challenging project...",
+    "shouldEnd": false,
+    "phase": "main",
+    "questionCount": 3,
+    "analytics": {
+      "communicationScore": 8,
+      "technicalScore": 7
+    }
+  }
 }
 ```
 
@@ -288,80 +430,521 @@ POST /feedback/generate
 Content-Type: application/json
 
 {
-  "sessionId": "session_xxx",
-  "quick": false
+  "sessionId": "session_abc123"
+}
+
+Response:
+{
+  "success": true,
+  "data": {
+    "overallScore": 8,
+    "scores": {
+      "communication": 9,
+      "technicalKnowledge": 7,
+      "behavioralSkills": 8,
+      "confidence": 8,
+      "engagement": 9
+    },
+    "strengths": ["Clear communication", "Good examples"],
+    "improvements": ["More technical depth needed"],
+    "recommendation": "HIRE"
+  }
 }
 ```
 
 #### **4. Get Available Roles**
 ```http
 GET /feedback/roles
+
+Response:
+{
+  "success": true,
+  "data": [
+    {
+      "id": "SOFTWARE_ENGINEER",
+      "name": "Software Engineer",
+      "description": "Full-stack development role"
+    },
+    ...
+  ]
+}
+```
+
+#### **5. Voice Endpoints**
+```http
+POST /voice/stt          # Speech-to-text (browser-based recommended)
+POST /voice/tts          # Text-to-speech (browser-based recommended)
+GET  /voice/voices       # Get available TTS voices
+```
+
+---
+
+## 🤖 Multi-Agent System
+
+### Agent Responsibilities
+
+#### 1. **Orchestrator Agent** 🧠
+**Purpose**: Strategic decision-making
+
+**Responsibilities**:
+- Decides whether to continue or end the interview
+- Determines the type of next question (behavioral, technical, role-specific)
+- Adjusts difficulty based on candidate performance
+- Routes control to appropriate agent
+
+**Decision Factors**:
+- Question count (7-10 questions total)
+- Candidate performance scores
+- Response patterns (chatty, brief, off-topic)
+- Interview phase (opening, main, closing)
+
+**Example Decision**:
+```json
+{
+  "nextAgent": "interviewer",
+  "nextIntent": "ask_technical",
+  "metadata": {
+    "difficulty": "hard",
+    "focusAreas": ["System design", "Scalability"],
+    "provideHint": false,
+    "reasoning": "Candidate performing well, increasing difficulty"
+  },
+  "shouldEnd": false
+}
+```
+
+#### 2. **Analyzer Agent** 📊
+**Purpose**: Real-time response evaluation
+
+**Responsibilities**:
+- Analyzes response quality and depth
+- Detects communication patterns
+- Scores across multiple dimensions
+- Identifies strengths and weaknesses
+
+**Evaluation Criteria**:
+- **Communication**: Clarity, structure, articulation
+- **Technical Knowledge**: Depth, accuracy, relevance
+- **Behavioral Skills**: STAR method, examples, self-awareness
+- **Confidence**: Assertiveness, composure, conviction
+- **Engagement**: Enthusiasm, interest, energy
+
+**Example Analysis**:
+```json
+{
+  "isChatty": false,
+  "isTooShort": false,
+  "isOffTopic": false,
+  "communicationScore": 8,
+  "technicalScore": 7,
+  "behavioralScore": 8,
+  "confidenceScore": 9,
+  "engagementScore": 8,
+  "notes": "Strong answer with concrete examples",
+  "strengths": ["Used STAR method", "Specific metrics"],
+  "weaknesses": ["Could elaborate on technical details"]
+}
+```
+
+#### 3. **Interviewer Agent** 💼
+**Purpose**: Generate contextual questions
+
+**Responsibilities**:
+- Creates role-specific questions
+- Adapts to candidate's seniority level
+- Considers conversation history
+- Provides hints when candidate struggles
+- Steers back on track if off-topic
+
+**Question Types**:
+- `ask_behavioral`: STAR-method questions
+- `ask_technical`: Role-specific technical questions
+- `ask_role_specific`: Job-specific scenarios
+- `probe_answer`: Follow-up for clarification
+- `ask_closing`: Wrap-up questions
+- `continue_conversation`: Redirect if off-topic
+
+**Example Question**:
+```json
+{
+  "message": "Tell me about a time when you had to debug a complex production issue. How did you approach it?",
+  "questionType": "ask_technical"
+}
+```
+
+#### 4. **Feedback Agent** 📝
+**Purpose**: Comprehensive post-interview evaluation
+
+**Responsibilities**:
+- Analyzes entire interview conversation
+- Generates detailed feedback report
+- Provides hiring recommendation
+- Offers actionable improvement suggestions
+
+**Feedback Structure**:
+```json
+{
+  "overallScore": 8,
+  "scores": {
+    "communication": 9,
+    "technicalKnowledge": 7,
+    "behavioralSkills": 8,
+    "confidence": 8,
+    "engagement": 9
+  },
+  "strengths": [
+    "Excellent communication with clear structure",
+    "Provided specific examples with measurable outcomes"
+  ],
+  "improvements": [
+    "Dive deeper into technical architecture decisions",
+    "Discuss trade-offs more explicitly"
+  ],
+  "highlights": [
+    "Outstanding answer about leading the migration project"
+  ],
+  "recommendation": "HIRE",
+  "summary": "Strong candidate with excellent communication..."
+}
 ```
 
 ---
 
 ## 🎨 Design Decisions
 
-### 1. **Why Google Gemini Instead of OpenAI?**
+### 1. **Why Multi-Agent Architecture?**
 
-**Decision**: Use Google Gemini API
+**Decision**: Use specialized agents instead of a monolithic AI
+
+**Reasoning**:
+- ✅ **Separation of Concerns**: Each agent has a clear, focused responsibility
+- ✅ **Better Performance**: Specialized prompts yield better results than one-size-fits-all
+- ✅ **Easier Debugging**: Can test and improve each agent independently
+- ✅ **Scalability**: Easy to add new agents (e.g., domain expert agent)
+- ✅ **Flexibility**: Can swap out individual agents without affecting others
+
+**Trade-offs**:
+- ⚠️ More API calls (but Gemini is free!)
+- ⚠️ Slightly higher latency (mitigated by fast Gemini 2.5 Flash)
+
+### 2. **Why Google Gemini Instead of OpenAI?**
+
+**Decision**: Use Google Gemini 2.5 Flash
 
 **Reasoning**:
 - ✅ **100% FREE** - No credit card required
 - ✅ **Generous Limits** - 60 requests/minute
 - ✅ **High Quality** - Comparable to GPT-4
-- ✅ **Easy to Use** - Simple API
-- ✅ **No Billing** - Perfect for learning and demos
+- ✅ **Fast** - Gemini 2.5 Flash is optimized for speed
+- ✅ **Easy Integration** - LangChain has excellent Gemini support
 
-**OpenAI Alternative**: Would cost $0.15-$0.60 per interview
+**Cost Comparison**:
+- **Gemini**: $0.00 per interview
+- **OpenAI GPT-4**: ~$0.50-$1.00 per interview
 
-### 2. **Why Browser-Based Voice?**
+### 3. **Why LangChain?**
+
+**Decision**: Use LangChain for agent orchestration
+
+**Reasoning**:
+- ✅ **Agent Framework**: Built-in support for multi-agent systems
+- ✅ **Prompt Templates**: Easy to manage and version prompts
+- ✅ **Output Parsing**: Structured JSON responses with validation
+- ✅ **Provider Agnostic**: Easy to switch between Gemini, OpenAI, etc.
+- ✅ **Community**: Large ecosystem and active development
+
+### 4. **Why Browser-Based Voice?**
 
 **Decision**: Use Web Speech API and Speech Synthesis API
 
 **Reasoning**:
 - ✅ **100% FREE** - No API costs
 - ✅ **No Server Processing** - Reduces backend load
-- ✅ **Built-in** - Available in all modern browsers
 - ✅ **Low Latency** - Processes locally
 - ✅ **Privacy** - Audio doesn't leave user's device
+- ✅ **Built-in** - Available in all modern browsers
 
-**Drawbacks**: Requires Chrome, Edge, or Safari
+**Drawbacks**:
+- ⚠️ Requires Chrome, Edge, or Safari
+- ⚠️ Voice quality varies by browser
 
-### 3. **Why Full JavaScript Stack?**
+**Alternative**: For production, consider Google Cloud Speech-to-Text (free tier: 60 min/month)
 
-**Decision**: Node.js + Express + Next.js
+### 5. **Why TypeScript for Backend?**
 
-**Reasoning**:
-- Single language across stack
-- Easy code sharing
-- Fast development
-- Great ecosystem
-
-### 4. **Session Management**
-
-**Decision**: In-memory storage
+**Decision**: Use TypeScript instead of JavaScript
 
 **Reasoning**:
-- Simple for MVP
-- Fast access
-- Easy to migrate to Redis later
+- ✅ **Type Safety**: Catch errors at compile time
+- ✅ **Better IDE Support**: Autocomplete and refactoring
+- ✅ **Self-Documenting**: Types serve as documentation
+- ✅ **Easier Refactoring**: Confidence when making changes
+- ✅ **Agent Interfaces**: Strongly typed agent responses
+
+### 6. **Why In-Memory Session Storage?**
+
+**Decision**: Store sessions in-memory (Map)
+
+**Reasoning**:
+- ✅ **Simple for MVP**: No database setup required
+- ✅ **Fast Access**: Instant read/write
+- ✅ **Easy to Migrate**: Can switch to Redis/MongoDB later
+
+**Production Recommendation**: Use Redis for session storage
 
 ---
 
-## 👥 User Personas & Testing
+## 🎤 Voice Features
 
-### 1. **The Confused User** 😕
-**System Response**: Offers guidance, suggestions, and examples
+### Speech-to-Text (STT)
 
-### 2. **The Efficient User** ⚡
-**System Response**: Quick, focused questions without fluff
+**Current Implementation**: Browser Web Speech API (client-side)
 
-### 3. **The Chatty User** 💬
-**System Response**: Gentle redirection to stay on topic
+**How it works**:
+1. User clicks microphone button
+2. Browser requests microphone permission
+3. `MediaRecorder` API captures audio
+4. Web Speech API transcribes in real-time
+5. Transcription sent to backend as text
 
-### 4. **The Edge Case User** 🚨
-**System Response**: Graceful error handling and clear messages
+**Browser Support**:
+- ✅ Chrome (best support)
+- ✅ Edge
+- ✅ Safari
+- ⚠️ Firefox (limited support)
+
+**Alternative**: For server-side STT, use Google Cloud Speech-to-Text (free tier: 60 min/month)
+
+### Text-to-Speech (TTS)
+
+**Current Implementation**: Browser Speech Synthesis API (client-side)
+
+**How it works**:
+1. Backend sends text response
+2. Frontend uses `speechSynthesis.speak()`
+3. Browser plays audio using built-in voices
+
+**Voice Options**:
+- Multiple voices per browser
+- Adjustable rate, pitch, volume
+- Language support varies by OS
+
+**Alternative**: For server-side TTS, use Google Cloud Text-to-Speech (free tier: 0-4M chars/month)
+
+### Voice Interface Features
+
+- 🎙️ **Visual Feedback**: Pulsing animation while recording
+- 🔴 **Recording Indicator**: Clear visual state
+- 📝 **Live Transcription**: See what was heard
+- 🔊 **Audio Playback**: Hear AI responses
+- ⏸️ **Pause/Resume**: Control interview flow
+
+---
+
+## 🚀 Deployment
+
+### Backend Deployment (Railway / Render)
+
+1. **Create account** on [Railway](https://railway.app) or [Render](https://render.com)
+
+2. **Connect GitHub repository**
+
+3. **Set environment variables**:
+   ```
+   PORT=9000
+   NODE_ENV=production
+   GEMINI_API_KEY=your_gemini_api_key
+   FRONTEND_URL=https://your-frontend-url.vercel.app
+   ```
+
+4. **Build command**: `npm run build`
+
+5. **Start command**: `npm start`
+
+### Frontend Deployment (Vercel)
+
+1. **Install Vercel CLI**:
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Deploy**:
+   ```bash
+   cd frontend
+   vercel deploy --prod
+   ```
+
+3. **Set environment variable**:
+   ```
+   NEXT_PUBLIC_API_URL=https://your-backend-url.railway.app
+   ```
+
+### Docker Deployment (Optional)
+
+```dockerfile
+# Backend Dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+EXPOSE 9000
+CMD ["npm", "start"]
+```
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "9000:9000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:9000
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Backend Issues
+
+#### **"Missing required environment variable: GEMINI_API_KEY"**
+**Solution**: Create `.env` file in `backend/` with your Gemini API key:
+```bash
+GEMINI_API_KEY=your_key_here
+```
+
+#### **"Port 9000 is already in use"**
+**Solution**: Kill the process or use a different port:
+```bash
+# Kill process on port 9000
+lsof -ti:9000 | xargs kill -9
+
+# Or use different port
+PORT=9001 npm run dev
+```
+
+#### **"Failed to generate response"**
+**Solution**: Check your Gemini API key is valid and has quota remaining
+
+### Frontend Issues
+
+#### **"Failed to fetch roles"**
+**Solution**: Ensure backend is running on `http://localhost:9000`
+
+#### **"Network Error"**
+**Solution**: Check `.env.local` has correct backend URL:
+```
+NEXT_PUBLIC_API_URL=http://localhost:9000
+```
+
+### Voice Issues
+
+#### **"Speech recognition not supported"**
+**Solution**: Use Chrome, Edge, or Safari (not Firefox)
+
+#### **"Microphone permission denied"**
+**Solution**: Allow microphone access in browser settings
+
+#### **"Voice not working"**
+**Solution**: Check browser console for errors, try different browser
+
+---
+
+## 📊 Browser Compatibility
+
+| Feature | Chrome | Firefox | Safari | Edge |
+|---------|--------|---------|--------|------|
+| Chat Mode | ✅ | ✅ | ✅ | ✅ |
+| Voice Recognition | ✅ | ⚠️ Limited | ✅ | ✅ |
+| Speech Synthesis | ✅ | ✅ | ✅ | ✅ |
+| Overall Experience | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+
+**Recommended**: Chrome or Edge for best experience
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Make your changes**
+4. **Test thoroughly**
+5. **Commit**: `git commit -m 'Add amazing feature'`
+6. **Push**: `git push origin feature/amazing-feature`
+7. **Open a Pull Request**
+
+### Development Guidelines
+
+- Use TypeScript for backend code
+- Follow existing code style
+- Add comments for complex logic
+- Update README if adding features
+- Test with multiple roles and scenarios
+
+---
+
+## 📝 License
+
+MIT License - Free to use for learning and development
+
+---
+
+## 🎓 Learning Resources
+
+- [Google Gemini API Docs](https://ai.google.dev/docs)
+- [LangChain Documentation](https://js.langchain.com/docs)
+- [Web Speech API Guide](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+
+---
+
+## 🌟 Star This Project!
+
+If this helped you prepare for interviews, please ⭐ star the repository!
+
+---
+
+## 📞 Support
+
+For questions or issues:
+- Create an issue in the repository
+- Check [ARCHITECTURE_EXPLAINED.md](ARCHITECTURE_EXPLAINED.md) for detailed architecture
+- Review troubleshooting section above
+
+---
+
+## 🔮 Future Enhancements
+
+- [ ] Database persistence (PostgreSQL/MongoDB)
+- [ ] User authentication and history
+- [ ] Custom question banks
+- [ ] Video interview mode
+- [ ] Resume analysis integration
+- [ ] Company-specific interview prep
+- [ ] Mock coding challenges
+- [ ] Interview scheduling
+- [ ] Performance analytics dashboard
+- [ ] Mobile app (React Native)
+
+---
+
+**Built with ❤️ for job seekers everywhere. Practice makes perfect!**
+
+**100% FREE • No Credit Card • No Hidden Costs** ✨
 
 ---
 
@@ -380,126 +963,24 @@ GET /feedback/roles
 - **Text-to-Speech**: FREE (browser)
 
 ### Typical Interview Usage
-- **Chat Interview**: ~10-15 API calls = **$0.00**
-- **Voice Interview**: ~10-15 API calls + browser processing = **$0.00**
+- **Chat Interview**: ~15-20 API calls = **$0.00**
+- **Voice Interview**: ~15-20 API calls + browser processing = **$0.00**
 - **Feedback Generation**: 1-2 API calls = **$0.00**
 
 **You can run thousands of interviews completely FREE!**
 
 ---
 
-## 🎯 Getting Started Tips
+## 🏆 Project Highlights
 
-### 1. **Test Chat Mode First**
-- Easier to debug
-- See exactly what AI says
-- Good for understanding flow
-
-### 2. **Try Voice Mode in Chrome**
-- Best browser support
-- Most accurate recognition
-- Natural-sounding voices
-
-### 3. **Test All Personas**
-- Confused: "I'm not sure what to say"
-- Efficient: Give 20-word answers
-- Chatty: Give 200+ word answers
-- Edge: Try invalid inputs
-
-### 4. **Check Feedback Quality**
-- Complete at least 3 interviews
-- Compare feedback across roles
-- Note specific examples given
+- ✅ **Production-Ready**: Multi-agent architecture with error handling
+- ✅ **Type-Safe**: Full TypeScript backend with strict mode
+- ✅ **Modern Stack**: Next.js 14, LangChain, Gemini 2.5 Flash
+- ✅ **Beautiful UI**: Tailwind CSS with glassmorphism and animations
+- ✅ **Real-Time Analytics**: Continuous candidate evaluation
+- ✅ **Adaptive AI**: Adjusts to candidate performance
+- ✅ **100% Free**: No API costs, no hidden fees
 
 ---
 
-## 🚀 Deployment Options
-
-### Vercel (Recommended for Frontend)
-```bash
-cd frontend
-vercel deploy
-```
-
-### Railway/Render (For Backend)
-```bash
-# Add these environment variables:
-PORT=9000
-GEMINI_API_KEY=your_key
-```
-
-### Docker (Optional)
-```bash
-docker-compose up
-```
-
----
-
-## 🐛 Troubleshooting
-
-### "Speech recognition not supported"
-**Solution**: Use Chrome, Edge, or Safari
-
-### "Failed to generate response"
-**Solution**: Check your Gemini API key in `.env`
-
-### "Port already in use"
-**Solution**: Change port in `.env` or kill process
-
-### Voice not working
-**Solution**: Allow microphone permissions in browser
-
----
-
-## 📊 Browser Compatibility
-
-| Feature | Chrome | Firefox | Safari | Edge |
-|---------|--------|---------|--------|------|
-| Chat Mode | ✅ | ✅ | ✅ | ✅ |
-| Voice Recognition | ✅ | ⚠️ Limited | ✅ | ✅ |
-| Speech Synthesis | ✅ | ✅ | ✅ | ✅ |
-
----
-
-## 🤝 Contributing
-
-Contributions welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
----
-
-## 📝 License
-
-MIT License - Free to use for learning and development
-
----
-
-## 🎓 Learning Resources
-
-- [Google Gemini API Docs](https://ai.google.dev/docs)
-- [Web Speech API Guide](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
-- [Next.js Documentation](https://nextjs.org/docs)
-
----
-
-## 🌟 Star This Project!
-
-If this helped you prepare for interviews, please ⭐ star the repository!
-
----
-
-## 📞 Support
-
-For questions or issues:
-- Create an issue in the repository
-- Check existing documentation
-- Review troubleshooting section
-
----
-
-**Built with ❤️ for job seekers everywhere. Practice makes perfect!**
-
-**100% FREE • No Credit Card • No Hidden Costs** ✨
+**Version 2.0** - Multi-Agent Architecture with LangChain

@@ -71,9 +71,6 @@ export default function Home() {
           </div>
           <span className="text-xl font-bold text-gray-900 tracking-tight">Interview Partner</span>
         </div>
-        <div className="text-sm font-medium text-gray-500 bg-white/50 px-3 py-1 rounded-full border border-white/50 backdrop-blur-sm">
-          v2.0 Redesign
-        </div>
       </header>
 
       {/* Main Content */}
@@ -186,7 +183,7 @@ export default function Home() {
                         Starting...
                       </span>
                     ) : (
-                      'Start Interview 🚀'
+                      'Start Interview'
                     )}
                   </button>
                   

@@ -202,11 +202,15 @@ export default function VoiceInterface({ sessionId, onEnd }) {
         },
       ]);
       
-      // DON'T auto-speak initial message (browser blocks it)
-      // Voice will start after user clicks the microphone button
-      console.log('✅ Initial message ready. Click the microphone to start voice interaction.');
-      
       setLoading(false);
+      
+      // Auto-speak the initial greeting after a short delay to ensure voices are loaded
+      setTimeout(() => {
+        console.log('🎤 Auto-playing initial greeting...');
+        speakText(initialContent);
+        setIsFirstInteraction(false); // Mark that we've played the greeting
+      }, 500);
+      
     } catch (err) {
       console.error('Failed to fetch initial message:', err);
       setLoading(false);
@@ -335,15 +339,6 @@ export default function VoiceInterface({ sessionId, onEnd }) {
 
     // User clicked to START recording
     try {
-      // 🎤 On FIRST click: Just speak the greeting, don't start recording yet
-      if (isFirstInteraction && messages.length > 0) {
-        console.log('🎤 First click - AI will speak greeting. Click mic again to answer!');
-        speakText(messages[0].content);
-        setIsFirstInteraction(false);
-        return; // Don't start recording yet - let them hear the greeting first!
-      }
-      
-      // 🎤 On subsequent clicks: Start recording their answer
       recognitionRef.current.start();
       setIsListening(true);
       setError('');
@@ -455,12 +450,14 @@ export default function VoiceInterface({ sessionId, onEnd }) {
         </div>
       )}
 
-      {/* Speaking Indicator - BIG AND OBVIOUS */}
+      {/* Subtle Speaking Indicator - Animated Wave */}
       {isSpeaking && (
-        <div className="bg-green-100 border-2 border-green-500 text-green-800 px-6 py-4 rounded-lg mb-4 text-center animate-pulse">
-          <div className="text-2xl mb-2">🔊 🎤 🔊</div>
-          <p className="font-bold text-lg">AI IS SPEAKING NOW!</p>
-          <p className="text-sm">Listen to Sarah's response...</p>
+        <div className="flex items-center justify-center gap-1 mb-4 py-2">
+          <div className="w-1 h-3 bg-primary-500 rounded-full animate-wave" style={{ animationDelay: '0ms' }}></div>
+          <div className="w-1 h-4 bg-primary-500 rounded-full animate-wave" style={{ animationDelay: '150ms' }}></div>
+          <div className="w-1 h-5 bg-primary-500 rounded-full animate-wave" style={{ animationDelay: '300ms' }}></div>
+          <div className="w-1 h-4 bg-primary-500 rounded-full animate-wave" style={{ animationDelay: '450ms' }}></div>
+          <div className="w-1 h-3 bg-primary-500 rounded-full animate-wave" style={{ animationDelay: '600ms' }}></div>
         </div>
       )}
 
@@ -519,7 +516,7 @@ export default function VoiceInterface({ sessionId, onEnd }) {
               ) : isListening ? (
                 <div className="text-center">
                   <p className="text-red-600 font-bold text-lg flex items-center gap-2 justify-center mb-2">
-                    <span className="animate-pulse">🔴</span> LISTENING - Speak now!
+                    LISTENING - Speak now!
                   </p>
                   <p className="text-gray-600 text-sm mb-1">
                     Click microphone again when done to submit
@@ -530,13 +527,7 @@ export default function VoiceInterface({ sessionId, onEnd }) {
                 </div>
               ) : (
                 <p className="text-gray-600">
-                  {isFirstInteraction ? (
-                    <span className="font-semibold text-green-600 text-lg">
-                      👋 Click the microphone below to hear the AI interviewer speak!
-                    </span>
-                  ) : (
-                    'Click the microphone to start recording your answer'
-                  )}
+                  Click the microphone to start recording your answer
                 </p>
               )}
             </div>
