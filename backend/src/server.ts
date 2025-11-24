@@ -129,6 +129,19 @@ app.get('/health', (req: Request, res: Response) => {
 });
 
 /**
+ * Root Endpoint
+ * Redirects to health check or shows welcome message
+ */
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    message: 'Welcome to the Interview Practice Partner API',
+    status: 'Running',
+    documentation: '/health',
+    version: '2.0.0'
+  });
+});
+
+/**
  * API Routes
  */
 app.use('/api/interview', interviewRoutes);
