@@ -1,15 +1,12 @@
-# 🎯 AI Interview Practice Partner
+# AI Interview Practice Partner
 
 > **An intelligent, multi-agent AI interview platform powered by Google Gemini and LangChain**
 
 [![Tech Stack](https://img.shields.io/badge/Stack-TypeScript%20%7C%20Next.js%20%7C%20Gemini%20%7C%20LangChain-blue)](https://github.com)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Cost](https://img.shields.io/badge/Cost-100%25%20FREE-brightgreen)](https://makersuite.google.com/app/apikey)
-[![Version](https://img.shields.io/badge/Version-2.0-orange)](https://github.com)
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
@@ -20,50 +17,36 @@
 - [API Documentation](#-api-documentation)
 - [Multi-Agent System](#-multi-agent-system)
 - [Design Decisions](#-design-decisions)
-- [Voice Features](#-voice-features)
-- [Deployment](#-deployment)
-- [Troubleshooting](#-troubleshooting)
-- [Contributing](#-contributing)
 
 ---
 
-## 🎯 Overview
+## Overview
 
 **Interview Practice Partner** is a sophisticated AI-powered mock interview platform that simulates realistic job interviews using a **multi-agent architecture**. The system intelligently adapts to candidates, provides real-time analytics, and delivers comprehensive feedback to help job seekers improve their interview skills.
 
-### 🆓 100% FREE - No API Costs!
+### Key Capabilities
 
-This project leverages:
-- ✅ **Google Gemini 2.5 Flash** - FREE with generous limits (60 requests/minute)
-- ✅ **Browser Web Speech API** - Built-in Speech-to-Text (FREE)
-- ✅ **Browser Speech Synthesis** - Built-in Text-to-Speech (FREE)
-- ✅ **LangChain** - Open-source agent orchestration framework
-
-**No credit card required! No hidden costs!**
-
-### 🌟 Key Capabilities
-
-✅ **Multi-Agent Intelligence** - Orchestrator, Analyzer, Interviewer, and Feedback agents work together  
-✅ **Adaptive Questioning** - AI adjusts difficulty and style based on candidate performance  
-✅ **Real-Time Analytics** - Continuous evaluation of communication, technical skills, and engagement  
-✅ **Role-Specific Interviews** - Tailored questions for Software Engineers, Product Managers, Sales, and more  
-✅ **Voice & Chat Modes** - Flexible interaction options for different practice scenarios  
-✅ **Comprehensive Feedback** - Detailed post-interview analysis with actionable insights  
+**Multi-Agent Intelligence** - Orchestrator, Analyzer, Interviewer, and Feedback agents work together  
+**Adaptive Questioning** - AI adjusts difficulty and style based on candidate performance  
+**Real-Time Analytics** - Continuous evaluation of communication, technical skills, and engagement  
+**Role-Specific Interviews** - Tailored questions for Software Engineers, Product Managers, Sales, and more  
+**Voice & Chat Modes** - Flexible interaction options for different practice scenarios  
+**Comprehensive Feedback** - Detailed post-interview analysis with actionable insights  
 
 ---
 
-## ✨ Features
+## Features
 
-### 1. **Multi-Agent Architecture** 🤖
+### 1. **Multi-Agent Architecture**
 
 The system uses **four specialized AI agents** that collaborate to create a realistic interview experience:
 
-- **🧠 Orchestrator Agent**: Decides interview flow and next steps
-- **📊 Analyzer Agent**: Evaluates responses in real-time
-- **💼 Interviewer Agent**: Generates contextual questions
-- **📝 Feedback Agent**: Provides comprehensive post-interview evaluation
+- **Orchestrator Agent**: Decides interview flow and next steps
+- **Analyzer Agent**: Evaluates responses in real-time
+- **Interviewer Agent**: Generates contextual questions
+- **Feedback Agent**: Provides comprehensive post-interview evaluation
 
-### 2. **Intelligent Adaptation** 🎯
+### 2. **Intelligent Adaptation** 
 
 The AI automatically detects and adapts to:
 - **Response Length**: Adjusts question style for chatty or brief candidates
@@ -71,8 +54,8 @@ The AI automatically detects and adapts to:
 - **Off-Topic Responses**: Gently steers conversation back on track
 - **Confidence Levels**: Provides hints or challenges as appropriate
 
-### 3. **Real-Time Analytics** 📈
-
+### 3. **Real-Time Analytics** 
+ 
 Continuous evaluation across multiple dimensions:
 - **Communication Score** (1-10)
 - **Technical Knowledge** (1-10)
@@ -80,13 +63,13 @@ Continuous evaluation across multiple dimensions:
 - **Confidence Level** (1-10)
 - **Engagement Score** (1-10)
 
-### 4. **Voice & Chat Modes** 🎤💬
+### 4. **Voice & Chat Modes**
 
 - **Voice Mode**: Practice speaking skills with real-time speech recognition
 - **Chat Mode**: Craft thoughtful written responses
 - Seamless switching between modes
 
-### 5. **Comprehensive Feedback** 📊
+### 5. **Comprehensive Feedback** 
 
 Post-interview analysis includes:
 - Overall performance score
@@ -96,7 +79,7 @@ Post-interview analysis includes:
 - Interview highlights
 - Hiring recommendation (Strong Hire / Hire / Maybe / No Hire)
 
-### 6. **Role-Specific Interviews** 💼
+### 6. **Role-Specific Interviews** 
 
 Specialized question sets for:
 - Software Engineer
@@ -108,7 +91,7 @@ Specialized question sets for:
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### System Overview
 
@@ -180,13 +163,13 @@ Next Question / Final Feedback
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Runtime**: Node.js (v18+)
 - **Language**: TypeScript
 - **Framework**: Express.js
-- **AI Model**: Google Gemini 2.5 Flash (FREE!)
+- **AI Model**: Google Gemini 2.5 Flash
 - **Agent Framework**: LangChain + LangGraph
 - **Voice Processing**: Browser Web Speech API (client-side)
 
@@ -205,7 +188,7 @@ Next Question / Final Feedback
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 interview-practice-partner/
@@ -271,7 +254,7 @@ interview-practice-partner/
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
 
@@ -313,7 +296,7 @@ FRONTEND_URL=http://localhost:3000
 EOF
 ```
 
-**⚠️ Important**: Edit `.env` and replace `your_gemini_api_key_here` with your actual Gemini API key.
+**Important**: Edit `.env` and replace `your_gemini_api_key_here` with your actual Gemini API key.
 
 ### Step 4: Start Backend Server
 
@@ -362,11 +345,11 @@ Frontend runs on **`http://localhost:3000`**
 http://localhost:3000
 ```
 
-**🎉 You're ready to practice!**
+**You're ready to practice!**
 
 ---
 
-## 📡 API Documentation
+## API Documentation
 
 ### Base URL
 ```
@@ -479,11 +462,11 @@ GET  /voice/voices       # Get available TTS voices
 
 ---
 
-## 🤖 Multi-Agent System
+## Multi-Agent System
 
 ### Agent Responsibilities
 
-#### 1. **Orchestrator Agent** 🧠
+#### 1. **Orchestrator Agent**
 **Purpose**: Strategic decision-making
 
 **Responsibilities**:
@@ -513,7 +496,7 @@ GET  /voice/voices       # Get available TTS voices
 }
 ```
 
-#### 2. **Analyzer Agent** 📊
+#### 2. **Analyzer Agent**
 **Purpose**: Real-time response evaluation
 
 **Responsibilities**:
@@ -546,7 +529,7 @@ GET  /voice/voices       # Get available TTS voices
 }
 ```
 
-#### 3. **Interviewer Agent** 💼
+#### 3. **Interviewer Agent**
 **Purpose**: Generate contextual questions
 
 **Responsibilities**:
@@ -572,7 +555,7 @@ GET  /voice/voices       # Get available TTS voices
 }
 ```
 
-#### 4. **Feedback Agent** 📝
+#### 4. **Feedback Agent**
 **Purpose**: Comprehensive post-interview evaluation
 
 **Responsibilities**:
@@ -610,377 +593,44 @@ GET  /voice/voices       # Get available TTS voices
 
 ---
 
-## 🎨 Design Decisions
+## Design Decisions
 
-### 1. **Why Multi-Agent Architecture?**
+### **Why Multi-Agent Architecture?**
 
 **Decision**: Use specialized agents instead of a monolithic AI
 
 **Reasoning**:
-- ✅ **Separation of Concerns**: Each agent has a clear, focused responsibility
-- ✅ **Better Performance**: Specialized prompts yield better results than one-size-fits-all
-- ✅ **Easier Debugging**: Can test and improve each agent independently
-- ✅ **Scalability**: Easy to add new agents (e.g., domain expert agent)
-- ✅ **Flexibility**: Can swap out individual agents without affecting others
+- **Separation of Concerns**: Each agent has a clear, focused responsibility
+- **Better Performance**: Specialized prompts yield better results than one-size-fits-all
+- **Easier Debugging**: Can test and improve each agent independently
+- **Scalability**: Easy to add new agents (e.g., domain expert agent)
+- **Flexibility**: Can swap out individual agents without affecting others
 
 **Trade-offs**:
-- ⚠️ More API calls (but Gemini is free!)
-- ⚠️ Slightly higher latency (mitigated by fast Gemini 2.5 Flash)
+- More API calls (but Gemini is free!)
+- Slightly higher latency (mitigated by fast Gemini 2.5 Flash)
 
-### 2. **Why Google Gemini Instead of OpenAI?**
-
-**Decision**: Use Google Gemini 2.5 Flash
-
-**Reasoning**:
-- ✅ **100% FREE** - No credit card required
-- ✅ **Generous Limits** - 60 requests/minute
-- ✅ **High Quality** - Comparable to GPT-4
-- ✅ **Fast** - Gemini 2.5 Flash is optimized for speed
-- ✅ **Easy Integration** - LangChain has excellent Gemini support
-
-**Cost Comparison**:
-- **Gemini**: $0.00 per interview
-- **OpenAI GPT-4**: ~$0.50-$1.00 per interview
-
-### 3. **Why LangChain?**
+### **Why LangChain?**
 
 **Decision**: Use LangChain for agent orchestration
 
 **Reasoning**:
-- ✅ **Agent Framework**: Built-in support for multi-agent systems
-- ✅ **Prompt Templates**: Easy to manage and version prompts
-- ✅ **Output Parsing**: Structured JSON responses with validation
-- ✅ **Provider Agnostic**: Easy to switch between Gemini, OpenAI, etc.
-- ✅ **Community**: Large ecosystem and active development
+- **Agent Framework**: Built-in support for multi-agent systems
+- **Prompt Templates**: Easy to manage and version prompts
+- **Output Parsing**: Structured JSON responses with validation
+- **Provider Agnostic**: Easy to switch between Gemini, OpenAI, etc.
+- **Community**: Large ecosystem and active development
 
-### 4. **Why Browser-Based Voice?**
-
-**Decision**: Use Web Speech API and Speech Synthesis API
-
-**Reasoning**:
-- ✅ **100% FREE** - No API costs
-- ✅ **No Server Processing** - Reduces backend load
-- ✅ **Low Latency** - Processes locally
-- ✅ **Privacy** - Audio doesn't leave user's device
-- ✅ **Built-in** - Available in all modern browsers
-
-**Drawbacks**:
-- ⚠️ Requires Chrome, Edge, or Safari
-- ⚠️ Voice quality varies by browser
-
-**Alternative**: For production, consider Google Cloud Speech-to-Text (free tier: 60 min/month)
-
-### 5. **Why TypeScript for Backend?**
-
-**Decision**: Use TypeScript instead of JavaScript
-
-**Reasoning**:
-- ✅ **Type Safety**: Catch errors at compile time
-- ✅ **Better IDE Support**: Autocomplete and refactoring
-- ✅ **Self-Documenting**: Types serve as documentation
-- ✅ **Easier Refactoring**: Confidence when making changes
-- ✅ **Agent Interfaces**: Strongly typed agent responses
-
-### 6. **Why In-Memory Session Storage?**
+### **Why In-Memory Session Storage?**
 
 **Decision**: Store sessions in-memory (Map)
 
 **Reasoning**:
-- ✅ **Simple for MVP**: No database setup required
-- ✅ **Fast Access**: Instant read/write
-- ✅ **Easy to Migrate**: Can switch to Redis/MongoDB later
-
-**Production Recommendation**: Use Redis for session storage
+- **Simple for MVP**: No database setup required
+- **Fast Access**: Instant read/write
+- **Easy to Migrate**: Can switch to Redis/MongoDB later
 
 ---
 
-## 🎤 Voice Features
 
-### Speech-to-Text (STT)
 
-**Current Implementation**: Browser Web Speech API (client-side)
-
-**How it works**:
-1. User clicks microphone button
-2. Browser requests microphone permission
-3. `MediaRecorder` API captures audio
-4. Web Speech API transcribes in real-time
-5. Transcription sent to backend as text
-
-**Browser Support**:
-- ✅ Chrome (best support)
-- ✅ Edge
-- ✅ Safari
-- ⚠️ Firefox (limited support)
-
-**Alternative**: For server-side STT, use Google Cloud Speech-to-Text (free tier: 60 min/month)
-
-### Text-to-Speech (TTS)
-
-**Current Implementation**: Browser Speech Synthesis API (client-side)
-
-**How it works**:
-1. Backend sends text response
-2. Frontend uses `speechSynthesis.speak()`
-3. Browser plays audio using built-in voices
-
-**Voice Options**:
-- Multiple voices per browser
-- Adjustable rate, pitch, volume
-- Language support varies by OS
-
-**Alternative**: For server-side TTS, use Google Cloud Text-to-Speech (free tier: 0-4M chars/month)
-
-### Voice Interface Features
-
-- 🎙️ **Visual Feedback**: Pulsing animation while recording
-- 🔴 **Recording Indicator**: Clear visual state
-- 📝 **Live Transcription**: See what was heard
-- 🔊 **Audio Playback**: Hear AI responses
-- ⏸️ **Pause/Resume**: Control interview flow
-
----
-
-## 🚀 Deployment
-
-### Backend Deployment (Railway / Render)
-
-1. **Create account** on [Railway](https://railway.app) or [Render](https://render.com)
-
-2. **Connect GitHub repository**
-
-3. **Set environment variables**:
-   ```
-   PORT=9000
-   NODE_ENV=production
-   GEMINI_API_KEY=your_gemini_api_key
-   FRONTEND_URL=https://your-frontend-url.vercel.app
-   ```
-
-4. **Build command**: `npm run build`
-
-5. **Start command**: `npm start`
-
-### Frontend Deployment (Vercel)
-
-1. **Install Vercel CLI**:
-   ```bash
-   npm install -g vercel
-   ```
-
-2. **Deploy**:
-   ```bash
-   cd frontend
-   vercel deploy --prod
-   ```
-
-3. **Set environment variable**:
-   ```
-   NEXT_PUBLIC_API_URL=https://your-backend-url.railway.app
-   ```
-
-### Docker Deployment (Optional)
-
-```dockerfile
-# Backend Dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-RUN npm run build
-EXPOSE 9000
-CMD ["npm", "start"]
-```
-
-```yaml
-# docker-compose.yml
-version: '3.8'
-services:
-  backend:
-    build: ./backend
-    ports:
-      - "9000:9000"
-    environment:
-      - GEMINI_API_KEY=${GEMINI_API_KEY}
-  
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:9000
-```
-
----
-
-## 🐛 Troubleshooting
-
-### Backend Issues
-
-#### **"Missing required environment variable: GEMINI_API_KEY"**
-**Solution**: Create `.env` file in `backend/` with your Gemini API key:
-```bash
-GEMINI_API_KEY=your_key_here
-```
-
-#### **"Port 9000 is already in use"**
-**Solution**: Kill the process or use a different port:
-```bash
-# Kill process on port 9000
-lsof -ti:9000 | xargs kill -9
-
-# Or use different port
-PORT=9001 npm run dev
-```
-
-#### **"Failed to generate response"**
-**Solution**: Check your Gemini API key is valid and has quota remaining
-
-### Frontend Issues
-
-#### **"Failed to fetch roles"**
-**Solution**: Ensure backend is running on `http://localhost:9000`
-
-#### **"Network Error"**
-**Solution**: Check `.env.local` has correct backend URL:
-```
-NEXT_PUBLIC_API_URL=http://localhost:9000
-```
-
-### Voice Issues
-
-#### **"Speech recognition not supported"**
-**Solution**: Use Chrome, Edge, or Safari (not Firefox)
-
-#### **"Microphone permission denied"**
-**Solution**: Allow microphone access in browser settings
-
-#### **"Voice not working"**
-**Solution**: Check browser console for errors, try different browser
-
----
-
-## 📊 Browser Compatibility
-
-| Feature | Chrome | Firefox | Safari | Edge |
-|---------|--------|---------|--------|------|
-| Chat Mode | ✅ | ✅ | ✅ | ✅ |
-| Voice Recognition | ✅ | ⚠️ Limited | ✅ | ✅ |
-| Speech Synthesis | ✅ | ✅ | ✅ | ✅ |
-| Overall Experience | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-
-**Recommended**: Chrome or Edge for best experience
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Make your changes**
-4. **Test thoroughly**
-5. **Commit**: `git commit -m 'Add amazing feature'`
-6. **Push**: `git push origin feature/amazing-feature`
-7. **Open a Pull Request**
-
-### Development Guidelines
-
-- Use TypeScript for backend code
-- Follow existing code style
-- Add comments for complex logic
-- Update README if adding features
-- Test with multiple roles and scenarios
-
----
-
-## 📝 License
-
-MIT License - Free to use for learning and development
-
----
-
-## 🎓 Learning Resources
-
-- [Google Gemini API Docs](https://ai.google.dev/docs)
-- [LangChain Documentation](https://js.langchain.com/docs)
-- [Web Speech API Guide](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
-- [Next.js Documentation](https://nextjs.org/docs)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-
----
-
-## 🌟 Star This Project!
-
-If this helped you prepare for interviews, please ⭐ star the repository!
-
----
-
-## 📞 Support
-
-For questions or issues:
-- Create an issue in the repository
-- Check [ARCHITECTURE_EXPLAINED.md](ARCHITECTURE_EXPLAINED.md) for detailed architecture
-- Review troubleshooting section above
-
----
-
-## 🔮 Future Enhancements
-
-- [ ] Database persistence (PostgreSQL/MongoDB)
-- [ ] User authentication and history
-- [ ] Custom question banks
-- [ ] Video interview mode
-- [ ] Resume analysis integration
-- [ ] Company-specific interview prep
-- [ ] Mock coding challenges
-- [ ] Interview scheduling
-- [ ] Performance analytics dashboard
-- [ ] Mobile app (React Native)
-
----
-
-**Built with ❤️ for job seekers everywhere. Practice makes perfect!**
-
-**100% FREE • No Credit Card • No Hidden Costs** ✨
-
----
-
-## 💰 Cost Analysis
-
-### Development & Testing
-**Total Cost: $0.00** ✨
-
-### Gemini API Free Tier
-- **Requests per minute**: 60
-- **Requests per day**: Unlimited
-- **Cost**: FREE forever
-
-### Voice Processing
-- **Speech Recognition**: FREE (browser)
-- **Text-to-Speech**: FREE (browser)
-
-### Typical Interview Usage
-- **Chat Interview**: ~15-20 API calls = **$0.00**
-- **Voice Interview**: ~15-20 API calls + browser processing = **$0.00**
-- **Feedback Generation**: 1-2 API calls = **$0.00**
-
-**You can run thousands of interviews completely FREE!**
-
----
-
-## 🏆 Project Highlights
-
-- ✅ **Production-Ready**: Multi-agent architecture with error handling
-- ✅ **Type-Safe**: Full TypeScript backend with strict mode
-- ✅ **Modern Stack**: Next.js 14, LangChain, Gemini 2.5 Flash
-- ✅ **Beautiful UI**: Tailwind CSS with glassmorphism and animations
-- ✅ **Real-Time Analytics**: Continuous candidate evaluation
-- ✅ **Adaptive AI**: Adjusts to candidate performance
-- ✅ **100% Free**: No API costs, no hidden fees
-
----
-
-**Version 2.0** - Multi-Agent Architecture with LangChain
