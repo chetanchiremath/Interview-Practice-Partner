@@ -23,15 +23,19 @@ import voiceRoutes from './routes/voice';
 dotenv.config();
 
 // Validate required environment variables
-const requiredEnvVars = ['GEMINI_API_KEY'];
+// Note: GEMINI_API_KEY is now optional since users can provide their own via headers
+const requiredEnvVars: string[] = [];
 for (const envVar of requiredEnvVars) {
   if (!process.env[envVar]) {
     console.error(`\n❌ Error: Missing required environment variable: ${envVar}`);
-    console.error('\nPlease create a .env file in the backend directory with:');
-    console.error('GEMINI_API_KEY=your_gemini_api_key_here\n');
-    console.error('Get your FREE Gemini API key from: https://makersuite.google.com/app/apikey\n');
     process.exit(1);
   }
+}
+
+// Warn if no default API key is set (optional)
+if (!process.env.GEMINI_API_KEY) {
+  console.warn('\n⚠️  Warning: No GEMINI_API_KEY found in environment variables.');
+  console.warn('Users will need to provide their own API keys via the frontend.\n');
 }
 
 // Create Express app

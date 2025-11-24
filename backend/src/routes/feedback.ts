@@ -6,6 +6,7 @@
 
 import { Router } from 'express';
 import * as feedbackController from '../controllers/feedbackController';
+import { apiKeyMiddleware } from '../middleware/apiKey';
 
 const router = Router();
 
@@ -13,7 +14,7 @@ const router = Router();
  * POST /api/feedback/generate
  * Generate comprehensive feedback for a completed interview
  */
-router.post('/generate', feedbackController.generateFeedback);
+router.post('/generate', apiKeyMiddleware, feedbackController.generateFeedback);
 
 /**
  * GET /api/feedback/roles

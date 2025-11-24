@@ -2,15 +2,6 @@
 // Displays available job roles as selectable cards
 
 export default function RoleSelector({ roles, selectedRole, onSelectRole }) {
-  const roleIcons = {
-    SOFTWARE_ENGINEER: '💻',
-    SALES_REPRESENTATIVE: '📊',
-    RETAIL_ASSOCIATE: '🛍️',
-    PRODUCT_MANAGER: '📱',
-    DATA_ANALYST: '📈',
-    MARKETING_MANAGER: '📢',
-  };
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {roles.map((role) => (
@@ -28,9 +19,6 @@ export default function RoleSelector({ roles, selectedRole, onSelectRole }) {
           }`} />
           
           <div className="relative z-10">
-            <div className={`text-4xl mb-4 transition-transform duration-300 ${selectedRole === role.id ? 'scale-110' : 'group-hover:scale-110'}`}>
-              {roleIcons[role.id] || '💼'}
-            </div>
             <h3 className={`text-lg font-bold mb-2 transition-colors ${
               selectedRole === role.id ? 'text-primary-700' : 'text-gray-900 group-hover:text-primary-600'
             }`}>
@@ -45,4 +33,3 @@ export default function RoleSelector({ roles, selectedRole, onSelectRole }) {
     </div>
   );
 }
-

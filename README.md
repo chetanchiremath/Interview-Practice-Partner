@@ -91,76 +91,85 @@ Specialized question sets for:
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
-### System Overview
+### System Architecture Diagram
 
+```mermaid
+graph TB
+    subgraph Frontend[" FRONTEND - Next.js 14"]
+        LP[Landing Page<br/>Role Selection]
+        II[Interview Interface<br/>Voice & Chat Modes]
+        FD[Feedback Dashboard<br/>Performance Analysis]
+    end
+    
+    subgraph Backend["BACKEND - Express + TypeScript"]
+        API[REST API Layer]
+        
+        subgraph Agents["Multi-Agent Workflow System"]
+            direction LR
+            OA[Orchestrator Agent<br/>Strategic Decisions]
+            AA[Analyzer Agent<br/>Response Evaluation]
+            IA[Interviewer Agent<br/>Question Generation]
+            FA[Feedback Agent<br/>Final Evaluation]
+        end
+        
+        WF[⚡ Workflow Service<br/>Agent Coordination]
+    end
+    
+    subgraph AI["AI SERVICES"]
+        GEM[Google Gemini 2.5 Flash<br/>FREE API]
+        LC[LangChain Framework<br/>Agent Orchestration]
+    end
+    
+    subgraph Voice["VOICE SERVICES"]
+        STT[Web Speech API<br/>Speech-to-Text - FREE]
+        TTS[Speech Synthesis<br/>Text-to-Speech - FREE]
+    end
+    
+    %% Frontend connections
+    LP --> API
+    II --> API
+    FD --> API
+    
+    %% API to Workflow
+    API --> WF
+    
+    %% Workflow to Agents
+    WF --> OA
+    WF --> AA
+    WF --> IA
+    WF --> FA
+    
+    %% Agent workflow sequence
+    AA -.->|Analysis| OA
+    OA -.->|Decision| IA
+    OA -.->|End Interview| FA
+    
+    %% Backend to AI
+    OA --> LC
+    AA --> LC
+    IA --> LC
+    FA --> LC
+    LC --> GEM
+    
+    %% Voice connections
+    II -.->|Browser-based| STT
+    II -.->|Browser-based| TTS
+    
+    %% Styling
+    classDef frontend fill:#3b82f6,stroke:#1e40af,stroke-width:2px,color:#fff
+    classDef backend fill:#8b5cf6,stroke:#6d28d9,stroke-width:2px,color:#fff
+    classDef agent fill:#ec4899,stroke:#be185d,stroke-width:2px,color:#fff
+    classDef ai fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff
+    classDef voice fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff
+    
+    class LP,II,FD frontend
+    class API,WF backend
+    class OA,AA,IA,FA agent
+    class GEM,LC ai
+    class STT,TTS voice
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        FRONTEND (Next.js 14)                    │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐         │
-│  │ Landing Page │  │  Interview   │  │   Feedback   │         │
-│  │              │  │   Interface  │  │   Dashboard  │         │
-│  └──────────────┘  └──────────────┘  └──────────────┘         │
-│         │                  │                  │                 │
-│         └──────────────────┼──────────────────┘                 │
-│                            │ REST API                           │
-└────────────────────────────┼────────────────────────────────────┘
-                             │
-┌────────────────────────────┼────────────────────────────────────┐
-│                    BACKEND (Express + TypeScript)               │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │              MULTI-AGENT WORKFLOW SERVICE                │  │
-│  │                                                          │  │
-│  │  ┌────────────┐    ┌────────────┐    ┌────────────┐   │  │
-│  │  │Orchestrator│───▶│  Analyzer  │───▶│Interviewer │   │  │
-│  │  │   Agent    │    │   Agent    │    │   Agent    │   │  │
-│  │  └────────────┘    └────────────┘    └────────────┘   │  │
-│  │         │                                      │        │  │
-│  │         └──────────────────┬───────────────────┘        │  │
-│  │                            │                            │  │
-│  │                     ┌────────────┐                      │  │
-│  │                     │  Feedback  │                      │  │
-│  │                     │   Agent    │                      │  │
-│  │                     └────────────┘                      │  │
-│  └──────────────────────────────────────────────────────────┘  │
-│                            │                                   │
-│                            ▼                                   │
-│                  ┌──────────────────┐                          │
-│                  │  Google Gemini   │                          │
-│                  │  2.5 Flash API   │                          │
-│                  │   (FREE!)        │                          │
-│                  └──────────────────┘                          │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-### Multi-Agent Workflow
-
-```
-User Answer
-    │
-    ▼
-┌─────────────────┐
-│ Analyzer Agent  │ ──▶ Evaluates response quality
-└─────────────────┘     Detects patterns (chatty, brief, off-topic)
-    │                   Scores: communication, technical, behavioral
-    ▼
-┌─────────────────┐
-│Orchestrator     │ ──▶ Decides: continue or end interview?
-│Agent            │     Determines next question type
-└─────────────────┘     Adapts difficulty based on performance
-    │
-    ▼
-┌─────────────────┐
-│Interviewer Agent│ ──▶ Generates contextual question
-│  OR             │     Considers role, seniority, history
-│Feedback Agent   │     Provides hints if struggling
-└─────────────────┘
-    │
-    ▼
-Next Question / Final Feedback
-```
-
 ---
 
 ## Tech Stack
@@ -589,6 +598,83 @@ GET  /voice/voices       # Get available TTS voices
   "recommendation": "HIRE",
   "summary": "Strong candidate with excellent communication..."
 }
+```
+
+### Agent Decision-Making Flow
+
+```mermaid
+flowchart TD
+    Start([📊 Analyzer Completes<br/>Response Evaluation]) --> Orchestrator[🧠 Orchestrator Agent<br/>Receives Analysis]
+    
+    Orchestrator --> CheckCount{Question Count?}
+    
+    CheckCount -->|< 3 questions| EarlyPhase[📝 Opening Phase]
+    CheckCount -->|3-6 questions| MidPhase[🎯 Main Phase]
+    CheckCount -->|7-9 questions| LatePhase[🏁 Closing Phase]
+    CheckCount -->|>= 10 questions| ForceEnd[🛑 Force End Interview]
+    
+    EarlyPhase --> CheckPerformance1{Performance?}
+    MidPhase --> CheckPerformance2{Performance?}
+    LatePhase --> CheckPerformance3{Performance?}
+    
+    CheckPerformance1 -->|Scores < 3| ProvideHelp[💡 Provide Hints<br/>Ask Easier Questions]
+    CheckPerformance1 -->|Scores 3-7| AskBehavioral[🗣️ Ask Behavioral<br/>Medium Difficulty]
+    CheckPerformance1 -->|Scores > 7| AskTechnical[⚙️ Ask Technical<br/>Medium Difficulty]
+    
+    CheckPerformance2 -->|Scores < 3| ConsiderEnd{Struggling?}
+    CheckPerformance2 -->|Scores 3-7| AskRoleSpecific[💼 Ask Role-Specific<br/>Medium Difficulty]
+    CheckPerformance2 -->|Scores > 7| IncreaseDifficulty[📈 Increase Difficulty<br/>Hard Questions]
+    
+    CheckPerformance3 -->|Any Score| AskClosing[👋 Ask Closing<br/>Wrap Up Questions]
+    
+    ConsiderEnd -->|Yes, consistently low| EarlyEnd[⚠️ End Early<br/>Generate Feedback]
+    ConsiderEnd -->|No, some good answers| ProbeDeeper[🔍 Probe Deeper<br/>Give Another Chance]
+    
+    ProvideHelp --> CheckPattern
+    AskBehavioral --> CheckPattern
+    AskTechnical --> CheckPattern
+    AskRoleSpecific --> CheckPattern
+    IncreaseDifficulty --> CheckPattern
+    ProbeDeeper --> CheckPattern
+    AskClosing --> ForceEnd
+    
+    CheckPattern{Response Pattern?}
+    
+    CheckPattern -->|Too Chatty| FocusedQ[🎯 Ask Focused<br/>Specific Questions]
+    CheckPattern -->|Too Brief| OpenEndedQ[📖 Ask Open-Ended<br/>Elaboration Questions]
+    CheckPattern -->|Off-Topic| RedirectQ[↩️ Redirect<br/>Back to Topic]
+    CheckPattern -->|Balanced| StandardQ[✅ Standard<br/>Next Question]
+    
+    FocusedQ --> SendToInterviewer
+    OpenEndedQ --> SendToInterviewer
+    RedirectQ --> SendToInterviewer
+    StandardQ --> SendToInterviewer
+    
+    SendToInterviewer[💼 Route to<br/>Interviewer Agent]
+    
+    SendToInterviewer --> InterviewerGen[✨ Generate Question<br/>with Context]
+    
+    InterviewerGen --> NextQ([❓ Next Question<br/>Delivered to User])
+    
+    ForceEnd --> FeedbackAgent[📝 Route to<br/>Feedback Agent]
+    EarlyEnd --> FeedbackAgent
+    
+    FeedbackAgent --> GenerateFeedback[📊 Generate<br/>Comprehensive Feedback]
+    
+    GenerateFeedback --> Complete([✅ Interview Complete])
+    
+    %% Styling
+    classDef orchestrator fill:#8b5cf6,stroke:#6d28d9,stroke-width:3px,color:#fff
+    classDef decision fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff
+    classDef action fill:#3b82f6,stroke:#1e40af,stroke-width:2px,color:#fff
+    classDef agent fill:#ec4899,stroke:#be185d,stroke-width:2px,color:#fff
+    classDef end fill:#10b981,stroke:#059669,stroke-width:3px,color:#fff
+    
+    class Orchestrator orchestrator
+    class CheckCount,CheckPerformance1,CheckPerformance2,CheckPerformance3,ConsiderEnd,CheckPattern decision
+    class EarlyPhase,MidPhase,LatePhase,ProvideHelp,AskBehavioral,AskTechnical,AskRoleSpecific,IncreaseDifficulty,AskClosing,ProbeDeeper,FocusedQ,OpenEndedQ,RedirectQ,StandardQ action
+    class SendToInterviewer,InterviewerGen,FeedbackAgent,GenerateFeedback agent
+    class Start,NextQ,ForceEnd,EarlyEnd,Complete end
 ```
 
 ---

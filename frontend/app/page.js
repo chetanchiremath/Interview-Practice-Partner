@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import RoleSelector from '../components/RoleSelector';
+import ApiKeyModal from '../components/ApiKeyModal';
 import api from '../lib/api';
 
 export default function Home() {
@@ -13,6 +14,17 @@ export default function Home() {
   const [interactionMode, setInteractionMode] = useState('chat');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showApiKeyModal, setShowApiKeyModal] = useState(false);
+  const [hasApiKey, setHasApiKey] = useState(false);
+
+  // Check for API key on mount
+  useEffect(() => {
+    const apiKey = localStorage.getItem('gemini_api_key');
+    setHasApiKey(!!apiKey);
+    if (!apiKey) {
+      setShowApiKeyModal(true);
+    }
+  }, []);
 
   // Fetch available roles on mount
   useEffect(() => {
@@ -32,6 +44,14 @@ export default function Home() {
   async function handleStartInterview() {
     if (!selectedRole) {
       setError('Please select a role');
+      return;
+    }
+
+    // Check if user has API key
+    const apiKey = localStorage.getItem('gemini_api_key');
+    if (!apiKey) {
+      setShowApiKeyModal(true);
+      setError('Please provide your Gemini API key to continue');
       return;
     }
 
@@ -55,6 +75,11 @@ export default function Home() {
     }
   }
 
+  const handleApiKeySaved = (apiKey) => {
+    setHasApiKey(true);
+    setError('');
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50/50 relative overflow-hidden">
       {/* Background Decor */}
@@ -71,6 +96,23 @@ export default function Home() {
           </div>
           <span className="text-xl font-bold text-gray-900 tracking-tight">Interview Partner</span>
         </div>
+        
+        {/* API Key Settings Button */}
+        <button
+          onClick={() => setShowApiKeyModal(true)}
+          className="flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-200 hover:border-primary-300 hover:bg-primary-50 transition-all group"
+          title="Manage API Key"
+        >
+          <svg className="w-5 h-5 text-gray-600 group-hover:text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+          </svg>
+          <span className="text-sm font-medium text-gray-700 group-hover:text-primary-700">
+            {hasApiKey ? 'API Key Set' : 'Set API Key'}
+          </span>
+          {hasApiKey && (
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+          )}
+        </button>
       </header>
 
       {/* Main Content */}
@@ -125,8 +167,7 @@ export default function Home() {
                           : 'bg-white border-gray-200 text-gray-600 hover:border-primary-200 hover:bg-gray-50'
                       }`}
                     >
-                      <div className="text-2xl mb-1">🎤</div>
-                      <div className="font-semibold text-sm">Voice</div>
+                      <div className="font-semibold">Voice</div>
                     </button>
                     <button
                       onClick={() => setInteractionMode('chat')}
@@ -136,8 +177,7 @@ export default function Home() {
                           : 'bg-white border-gray-200 text-gray-600 hover:border-primary-200 hover:bg-gray-50'
                       }`}
                     >
-                      <div className="text-2xl mb-1">💬</div>
-                      <div className="font-semibold text-sm">Chat</div>
+                      <div className="font-semibold">Chat</div>
                     </button>
                   </div>
                   <p className="text-xs text-gray-500 px-1">
@@ -203,6 +243,13 @@ export default function Home() {
       <footer className="py-6 text-center text-sm text-gray-400">
         <p>Empowering your career journey with AI</p>
       </footer>
+
+      {/* API Key Modal */}
+      <ApiKeyModal
+        isOpen={showApiKeyModal}
+        onClose={() => setShowApiKeyModal(false)}
+        onSave={handleApiKeySaved}
+      />
     </div>
   );
 }

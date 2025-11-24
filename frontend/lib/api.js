@@ -18,10 +18,19 @@ const api = axios.create({
   timeout: 30000, // 30 seconds
 });
 
-// Request interceptor for logging
+// Request interceptor for logging and API key injection
 api.interceptors.request.use(
   (config) => {
     console.log(`API Request: ${config.method.toUpperCase()} ${config.url}`);
+    
+    // Inject user's API key from localStorage
+    if (typeof window !== 'undefined') {
+      const apiKey = localStorage.getItem('gemini_api_key');
+      if (apiKey) {
+        config.headers['X-Gemini-API-Key'] = apiKey;
+      }
+    }
+    
     return config;
   },
   (error) => {

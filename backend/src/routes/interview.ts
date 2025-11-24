@@ -6,8 +6,12 @@
 
 import { Router } from 'express';
 import * as interviewController from '../controllers/interviewController';
+import { apiKeyMiddleware } from '../middleware/apiKey';
 
 const router = Router();
+
+// Apply API key middleware to all routes
+router.use(apiKeyMiddleware);
 
 /**
  * POST /api/interview/start
